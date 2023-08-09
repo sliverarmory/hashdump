@@ -1,7 +1,7 @@
 {
     "name": "hashdump",
     "command_name": "hashdump",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "extension_author": "lesnuages",
     "original_author": "lesnuages",
     "repo_url": "https://github.com/sliverarmory/hashdump",
