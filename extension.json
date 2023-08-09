@@ -1,0 +1,22 @@
+{
+    "name": "hashdump",
+    "command_name": "hashdump",
+    "version": "v1.0.0",
+    "extension_author": "lesnuages",
+    "original_author": "lesnuages",
+    "repo_url": "https://github.com/sliverarmory/hashdump",
+    "help": "Dump local SAM password hashes",
+    "entrypoint": "Hashdump",
+    "files": [
+        {
+            "os": "windows",
+            "arch": "amd64",
+            "path": "hashdump.x64.dll"
+        },
+        {
+            "os": "windows",
+            "arch": "386",
+            "path": "hashdump.x86.dll"
+        }
+    ]
+}

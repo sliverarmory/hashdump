@@ -1,0 +1,13 @@
+github.com/C-Sto/gosecretsdump v0.3.1 h1:UVYErqrUk5R+z83aWf1lF6U0l1YYIfMm9HP6kQrcevs=
+github.com/C-Sto/gosecretsdump v0.3.1/go.mod h1:OT1LMtYzFEvBWtDfd+KaJzZ9KVwH9yLx0c27yd3W+uI=
+github.com/lesnuages/gosecretsdump v0.0.0-20230809175616-09e41f9c5008 h1:vfge7FQ+uVYh8KUUf1VefYAi6kyv8+4hXYKLcQOeiB4=
+github.com/lesnuages/gosecretsdump v0.0.0-20230809175616-09e41f9c5008/go.mod h1:bxN2JhcP0IroC8vGdmJUvVsd6aJeS+gEDRKUpPakMnU=
+golang.org/x/sys v0.0.0-20200501145240-bc7a7d42d5c3 h1:5B6i6EAiSYyejWfvc5Rc9BbI3rzIsrrXfAQBWnYfn+w=
+golang.org/x/sys v0.0.0-20200501145240-bc7a7d42d5c3/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.11.0 h1:eG7RXZHdqOJ1i+0lgLgCpSXAp6M3LYlAo6osgSi0xOM=
+golang.org/x/sys v0.11.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=
+golang.org/x/text v0.3.2/go.mod h1:bEr9sfX3Q8Zfm5fL9x+3itogRgK3+ptLWKqgva+5dAk=
+golang.org/x/text v0.12.0 h1:k+n5B8goJNdU7hSvEtMUz3d1Q6D/XW4COJSJR6fN0mc=
+golang.org/x/text v0.12.0/go.mod h1:TvPlkZtksWOMsz7fbANvkp4WM8x/WCo/om8BMLbz+aE=
+golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=

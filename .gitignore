@@ -1,0 +1,5 @@
+*.exe
+*.dll
+.vscode/
+.h
+dist/
