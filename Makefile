@@ -21,16 +21,16 @@ all: clean $(dist_dir) dll-x64 dll-x86 exe-x64 exe-x86
 $(dist_dir):
 	mkdir -p $@
 
-dll-x64:
+dll-x64: $(dist_dir)
 	CC=$(CC_X64) CXX=$(CXX_X64) CGO_ENABLED=1 GOOS=windows GOARCH=amd64 $(GO) build -o $(DLL_X64) -buildmode=c-shared ./dll/
 
-dll-x86:
+dll-x86: $(dist_dir)
 	CC=$(CC_X86) CXX=$(CXX_X86) CGO_ENABLED=1 GOOS=windows GOARCH=386 $(GO) build -o $(DLL_X86) -buildmode=c-shared ./dll/
 
-exe-x64:
+exe-x64: $(dist_dir)
 	GOOS=windows GOARCH=amd64 $(GO) build -o $(EXE_X64) main.go
 
-exe-x86:
+exe-x86: $(dist_dir)
 	GOOS=windows GOARCH=386 $(GO) build -o $(EXE_X86) main.go
 
 clean:
