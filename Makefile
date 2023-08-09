@@ -16,7 +16,7 @@ EXE_X64 := $(dist_dir)/hashdump.x64.exe
 EXE_X86 := $(dist_dir)/hashdump.x86.exe
 
 
-all: clean $(dist_dir) dll-x64 dll-x86 exe-x64 exe-x86
+all: clean dll-x64 dll-x86 exe-x64 exe-x86
 
 $(dist_dir):
 	mkdir -p $@
