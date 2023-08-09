@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+    branches: ["master"]
+
+jobs:
+  build-dll:
+    name: Build and publish tagged release
+    if: startsWith( github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: OS Packages
+        run: |
+          sudo apt-get update --fix-missing && sudo apt-get -y install \
+          git build-essential zlib1g zlib1g-dev wget zip unzip \
+          mingw-w64 binutils-mingw-w64 g++-mingw-w64 gcc-multilib jq
+
+      - name: Minisign
+        run: |
+          MINISIGN_TMP=`mktemp -d`
+          cd $MINISIGN_TMP
+          wget https://github.com/aead/minisign/releases/download/v0.2.0/minisign-linux-amd64.tar.gz
+          tar xvf minisign-linux-amd64.tar.gz
+          mv ./minisign ~/minisign
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+
+      - name: Build artifacts
+        run: |
+          make dll-x64 dll-x86
+          rm dist/*.h
+          cp extension.json dist/
+          cd dist/
+          tar -czvf ../hashdump.tar.gz .
+
+      - name: Sign Package
+        run: |
+          touch ~/minisign.key && chmod 600 ~/minisign.key
+          echo -e "${{ secrets.MINISIGN_PRIVATE_KEY }}" > ~/minisign.key
+          MANIFEST=$(cat ./compiled/extension.json | base64 -w 0)
+          bash -c "echo \"\" | ~/minisign -s ~/minisign.key -S -m ./hashdump.tar.gz -t \"$MANIFEST\" -x hashdump.minisig"
+
+      - name: "Publish Release"
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            ./hashdump.minisig
+            ./hashdump.tar.gz
